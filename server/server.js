@@ -1,40 +1,52 @@
-// Server-side global variables
-require(`dotenv`).config({path:`./config/.env`})
+// // Server-side global variables
+// require(`dotenv`).config({path:`./config/.env`})
 
+// // Database
+// require(`./config/db`)
 
-// Database
-require(`./config/db`)
+// // Express
+// const express = require(`express`)
+// const app = express()
 
+// app.use(require(`body-parser`).json())
+// app.use(require(`cors`)({credentials: true, origin: process.env.LOCAL_HOST}))
 
-// Express
-const express = require(`express`)
-const app = express()
+// // Routers
+// app.use(require(`./routes/cars`))
 
-app.use(require(`body-parser`).json())
-app.use(require(`cors`)({credentials: true, origin: process.env.LOCAL_HOST}))
+// // Port
+// app.listen(process.env.SERVER_PORT, () =>
+// {
+//     console.log(`Connected to port ` + process.env.SERVER_PORT)
+// })
 
+// // Error 404
+// app.use((req, res, next) => {next(createError(404))})
 
-// Routers
-app.use(require(`./routes/cars`))
+// // Other errors
+// app.use(function (err, req, res, next)
+// {
+//     console.error(err.message)
+//     if (!err.statusCode)
+//     {
+//         err.statusCode = 500
+//     }
+//     res.status(err.statusCode).send(err.message)
+// })
 
+const express = require('express');
+const cors = require('cors');
+const data = require('./data');
 
-// Port
-app.listen(process.env.SERVER_PORT, () => 
-{
-    console.log(`Connected to port ` + process.env.SERVER_PORT)
-})
+const app = express();
+const port = process.env.PORT || 4000;
 
+app.use(cors());
 
-// Error 404
-app.use((req, res, next) => {next(createError(404))})
+app.get('/api/products', (req, res) => {
+  res.send(data.products);
+});
 
-// Other errors
-app.use(function (err, req, res, next)
-{
-    console.error(err.message)
-    if (!err.statusCode) 
-    {
-        err.statusCode = 500
-    }
-    res.status(err.statusCode).send(err.message)
-})
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
+});
