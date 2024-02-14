@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ProductScreen from './ProductScreen';
+import '../css/HomeScreen.css';
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -27,23 +28,14 @@ class HomeScreen extends Component {
     return (
       <div>
         <h1>Featured Products</h1>
-        <div className="products">
-          {this.state.products.map((product) => (
-            <div className="product" key={product.slug}>
-              <Link to={`/product/${product.slug}`}>
-                <img src={product.productImage} alt={product.name} />
-              </Link>
-              <div className="product-info">
-                <Link to={`/product/${product.slug}`}>
-                  <p>{product.name}</p>
-                </Link>
-                <p>
-                  <strong>${product.price}</strong>
-                </p>
-                <button>Add to cart</button>
+        <div>
+          <div className="products">
+            {this.state.products.map((product) => (
+              <div key={product.slug} className="product">
+                <ProductScreen product={product} />
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     );
