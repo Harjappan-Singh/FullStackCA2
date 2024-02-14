@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Rating from '../components/Rating';
 import '../css/ProductDetail.css';
+import Loading from './Loading';
+import Message from './Message';
 class ProductDetails extends Component {
   constructor(props) {
     super(props);
@@ -29,13 +31,17 @@ class ProductDetails extends Component {
     const { loading, error, product } = this.state;
 
     if (loading) {
-      return <div>Loading...</div>;
+      return <Loading />;
     } else if (error) {
-      return <div>{error}</div>;
+      return (
+        <div>
+          <Message variant="danger">{error}</Message>
+        </div>
+      );
     } else {
       return (
         <div className="product-details-container">
-          {loading && <div>Loading...</div>}
+          {loading && <Loading />}
           {error && <div>{error}</div>}
           {!loading && !error && (
             <>
