@@ -6,7 +6,7 @@ import './css/App.css';
 import './css/main.css';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import HomeScreen from './components/HomeScreen';
-import ProductScreen from './components/ProductScreen';
+import ProductDetails from './components/ProductDetails';
 
 export default class App extends Component {
   render() {
@@ -19,7 +19,7 @@ export default class App extends Component {
           <main>
             <Switch>
               <Route exact path="/" component={HomeScreen} />
-              <Route exact path="/product/:slug" component={ProductScreen} />
+              <Route exact path="/product/:slug" component={ProductDetails} />
               <Route path="*" component={HomeScreen} />
             </Switch>
           </main>

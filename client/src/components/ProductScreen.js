@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Rating from './Rating';
 import '../css/Product.css';
 
-class Product extends Component {
+class ProductScreen extends Component {
   render() {
     const { product } = this.props;
     return (
@@ -25,4 +25,4 @@ class Product extends Component {
   }
 }
 
-export default Product;
+export default ProductScreen;
