@@ -35,9 +35,7 @@ class HomeScreen extends Component {
 
     return (
       <div>
-        <DocumentTitle title="Home">
-          <h1>Featured Products</h1>
-        </DocumentTitle>
+        <DocumentTitle title="Home"></DocumentTitle>
 
         <div>
           {loading && <Loading />}

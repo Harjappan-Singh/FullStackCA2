@@ -19,7 +19,7 @@ const data = {
       sizes: ['S', 'M', 'L', 'XL'],
       price: 24.99,
       countInStock: 15,
-      rating: 4.8,
+      rating: 2.3,
       numReviews: 10,
     },
     {
