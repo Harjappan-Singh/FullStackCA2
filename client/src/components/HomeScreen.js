@@ -4,6 +4,7 @@ import ProductScreen from './ProductScreen';
 import '../css/HomeScreen.css';
 import Loading from './Loading';
 import Message from './Message';
+import DocumentTitle from 'react-document-title';
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -34,7 +35,10 @@ class HomeScreen extends Component {
 
     return (
       <div>
-        <h1>Featured Products</h1>
+        <DocumentTitle title="Home">
+          <h1>Featured Products</h1>
+        </DocumentTitle>
+
         <div>
           {loading && <Loading />}
           {error && <Message variant="danger">{error}</Message>}

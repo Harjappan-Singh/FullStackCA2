@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Rating from './Rating';
 import '../css/Product.css';
+import HeartIcon from './HeartIcon';
 
 class ProductScreen extends Component {
   render() {
@@ -10,6 +11,7 @@ class ProductScreen extends Component {
         <div className="product-image">
           <a href={`/product/${product.slug}`}>
             <img src={product.productImage} alt={product.name} />
+            <HeartIcon />
           </a>
         </div>
         <div className="product-info">
@@ -18,7 +20,6 @@ class ProductScreen extends Component {
           </a>
           <Rating rating={product.rating} numReviews={product.numReviews} />
           <div className="product-price">${product.price}</div>
-          <button className="add-to-cart">Add to cart</button>
         </div>
       </div>
     );

@@ -4,6 +4,7 @@ import Rating from '../components/Rating';
 import '../css/ProductDetail.css';
 import Loading from './Loading';
 import Message from './Message';
+import DocumentTitle from 'react-document-title';
 class ProductDetails extends Component {
   constructor(props) {
     super(props);
@@ -46,7 +47,9 @@ class ProductDetails extends Component {
           {!loading && !error && (
             <>
               <div className="product-details-header">
-                <h1>{product.name}</h1>
+                <DocumentTitle title={product.name}>
+                  <h1>{product.name}</h1>
+                </DocumentTitle>
               </div>
               <div className="product-details-content">
                 <div className="product-image-container">
